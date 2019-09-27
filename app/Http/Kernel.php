@@ -51,6 +51,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'assign.guard' => \App\Http\Middleware\AssignGuard::class,
         'jwt.generate' => \App\Http\Middleware\GenerateJwt::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
@@ -81,3 +82,4 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\CheckPerfil::class,
     ];
 }
+
