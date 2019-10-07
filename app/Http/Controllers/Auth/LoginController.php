@@ -65,7 +65,7 @@ class LoginController extends Controller
         $request->session()->put('authenticated',true);
         $request->session()->put('user', $user);
 
-        return view('home');
+        return redirect('home');
     }
 
     public function logout(Request $request) {
