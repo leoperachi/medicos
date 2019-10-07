@@ -14,6 +14,7 @@
         "codeedu/code_validator": "^0.0.2",
         "doctrine/dbal": "v2.9.2",
         "fideloper/proxy": "^4.0",
+        "guzzlehttp/guzzle": "^6.3",
         "igorescobar/jquery-mask-plugin": "^1.14",
         "intervention/image": "dev-master",
         "laravel/framework": "5.8.*",

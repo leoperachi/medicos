@@ -8,15 +8,14 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
                         <div class="d-flex justify-content-center">
                             <img src="img/logo_cliente.png" alt="">
                         </div>
                         <div class="form-group form-group-input row">
-                            <!-- <label for="email" class="col-md-3 col-form-label text-md-right">{{ __('Login') }}</label> -->
-
                             <div class="col-md-12">
-                                <input id="email" type="email" placeholder="E-mail" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                                <input id="email" type="email" placeholder="E-mail" 
+                                    class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" 
+                                    name="email" value="{{ old('email') }}" required autofocus>
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
@@ -25,12 +24,11 @@
                                 @endif
                             </div>
                         </div>
-
                         <div class="form-group form-group-input row">
-                            <!-- <label for="password" class="col-md-3 col-form-label text-md-right">{{ __('Password') }}</label> -->
-
                             <div class="col-md-12">
-                                <input id="password" type="password"  placeholder="Password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                <input id="password" type="password"  placeholder="Password" 
+                                    class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" 
+                                    name="password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
