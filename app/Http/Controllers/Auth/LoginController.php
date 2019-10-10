@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use GuzzleHttp\Client;
-use App\User;
 
 class LoginController extends Controller
 {
@@ -44,28 +44,15 @@ class LoginController extends Controller
         
         $credentials = $request->only('email', 'password');
 
-        try{
-            $client = new Client([
-                // Base URI is used with relative requests
-                'base_uri' => 'localhost:8001/api/',
-            ]);
-    
-            $response = $client->post('login', ['form_params' => [
-                'email' => $credentials['email'],
-                'password' => $credentials['password']
-            ]]);
-        } catch(\GuzzleHttp\Exception\ClientException $e) {
-
+        if(Auth::attempt($credentials)){            
+            $request->session()->put('authenticated',true);
+            $request->session()->put('user', $credentials['email']);
+            $token = Auth::user()->auth->access_token;
+           
+            return redirect('/home');
         }
-        
-        $auth = json_decode($response->getBody());
-        $user = new User();
-        $user->email = $credentials['email'];
-        $user->auth = $auth;
-        $request->session()->put('authenticated',true);
-        $request->session()->put('user', $user);
 
-        return redirect('home');
+        return redirect('/login');
     }
 
     public function logout(Request $request) {

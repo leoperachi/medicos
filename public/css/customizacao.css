@@ -180,3 +180,7 @@ select[readonly] {
         transform: rotate(360deg);
     }
 }
+
+.medicoTab{
+    width: 25%!important;
+}
