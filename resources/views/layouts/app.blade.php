@@ -45,10 +45,18 @@
     <link href="{{ asset('css/smart_wizard.min.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
 
+    <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
+    <link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+    <script src="{{ asset('js/jquery-datatables.js') }}"></script>
 </head>
 <body class="sidebar-mini sidebar-open">
 <div id="app" class="wrapper">
-    <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+    <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom" 
+        style="padding-top: 0px;padding-bottom: 4px;">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -102,7 +110,7 @@
         <!-- /.sidebar -->
     </aside>
     <!-- /.navbar -->
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="padding-top:15px!important;">
         <section class="content">
             <div class="container-fluid">
                 @yield('content')
@@ -110,10 +118,18 @@
         </section>
     </div>
 </div>
-<div id="loading" class="loading" >Loading&#8230;</div>
+<div id="loading" class="loading" style="z-index: 9999;" >Loading&#8230;</div>
 @yield('scripts')
 <script>
     $(document).ready(function(){
+        jQuery.extend(jQuery.validator.messages, {
+            required: "Este campo &eacute; obrigatório.",
+            email: "Por favor, forneça um endereço válido.",
+            date: "Por favor, forneça uma data válida.",
+            number: "Por favor, forneça um número válido.",
+            digits: "Por favor, forneça somente d&iacute;gitos.",
+            equalTo: "Por favor, forneça o mesmo valor novamente.",
+        });
 
         var tam = $(window).width();
         
@@ -121,6 +137,12 @@
 
             $(".sidebar-mini").removeClass('sidebar-open');
         }
+
+        $.ajaxSetup({
+                headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
         $(".nav-treeview > .nav-item > .nav-link").click(function(){
             $("#loading").show(); 

@@ -17,7 +17,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-return Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'web'], function () {
+    Route::get('/home', 'HomeController@index')
+            ->name('home');
+
+    Route::post('/disponibilidades/salvar', 
+         'DisponibilidadeController@salvar')
+            ->name('disponibilidades.salvar');
+
+    Route::get('/oportunidades/candidatarse', 
+        'OportunidadeMedicosInteressadosController@candidatarse')
+            ->name('oportunidades.candidatarse');
+    
+});
 //  Route::middleware('auth:api')->get('/home', function (Request $request) {
 //      return Route::get('/home', 'HomeController@index')->name('home');
 //  });

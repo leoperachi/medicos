@@ -33,10 +33,10 @@
     margin-top: 34px!important;
 }
 
-select.form-control  {
+/* select.form-control  {
 
     margin-top: 14px!important;
-}
+} */
 
 select[readonly] {
     background: #eee;
@@ -183,4 +183,42 @@ select[readonly] {
 
 .medicoTab{
     width: 25%!important;
+}
+
+.btn {
+   min-width: 25px;
+   width: 30px!important;
+   min-height: 25px;
+   height: 25px!important;
+}
+
+.col{
+    padding-left: 7px!important;
+    padding-right: 7px!important;
+}
+
+.error{
+    color: #a82222!important;
+}
+
+tr {
+    height: 20px;
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button {
+   
+    padding: 0.2em 0.7em!important;
+   
+}
+
+table.dataTable, table.dataTable th, table.dataTable td {
+    font-size:10.5px;
+}
+
+.table th, .table td {
+    padding-top: 0.25rem !important;
+    padding-right: 0.15rem !important;
+    padding-bottom: 0.25rem !important;
+    padding-left: 0.15rem !important;
+    
 }
