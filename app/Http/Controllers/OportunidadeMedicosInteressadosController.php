@@ -12,9 +12,18 @@ class OportunidadeMedicosInteressadosController extends \App\Http\Controllers\Co
         $this->setClient();
         $user = $request->session()->get('apiUser');
         $idOportunidade = $request->query->GET('idOportunidade');
-        $response = $this->client->request('GET', 
-            '/oportunidades/candidatarse?idOportunidade=' . $idOportunidade . '&userId=' . $user->id);
 
+        try{
+            $response = $this->client->request('POST', 'oportunidades/candidatarse', [
+                'form_params' => [
+                    'idOportunidade' => $idOportunidade,
+                    'userId' => $user->id
+                ]
+            ]);
+        }catch(\Exception $ex){
+            throw $ex;
+        }
+        
         $jsonRetorno = json_decode($response->getBody());
         return $jsonRetorno;
     }

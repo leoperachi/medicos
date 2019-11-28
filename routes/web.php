@@ -28,7 +28,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/oportunidades/candidatarse', 
         'OportunidadeMedicosInteressadosController@candidatarse')
             ->name('oportunidades.candidatarse');
-    
 });
 //  Route::middleware('auth:api')->get('/home', function (Request $request) {
 //      return Route::get('/home', 'HomeController@index')->name('home');

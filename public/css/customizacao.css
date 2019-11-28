@@ -205,20 +205,36 @@ tr {
     height: 20px;
   }
 
-  .dataTables_wrapper .dataTables_paginate .paginate_button {
-   
+.dataTables_wrapper .dataTables_paginate .paginate_button {   
     padding: 0.2em 0.7em!important;
-   
 }
 
 table.dataTable, table.dataTable th, table.dataTable td {
     font-size:10.5px;
 }
 
-.table th, .table td {
+.table td {
     padding-top: 0.25rem !important;
     padding-right: 0.15rem !important;
     padding-bottom: 0.25rem !important;
-    padding-left: 0.15rem !important;
-    
+    padding-left: 0.15rem !important;    
 }
+
+.table th{
+    padding-top: 0.55rem !important;
+    padding-right: 0.15rem !important;
+    padding-bottom: 0.65rem !important;
+    padding-left: 0.15rem !important;  
+}
+
+.invisivel{
+    display: none;
+}
+
+
+.cardleo {
+    right: 5px !important;
+    top: 0px !important;
+    margin-top: 80px !important;
+}
+

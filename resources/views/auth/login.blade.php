@@ -4,7 +4,7 @@
 <div class="">
     <div class="row justify-content-end">
         <div class="col-md-3 card-login">
-            <div class="card">
+            <div class="card cardLeo" style="">
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -59,5 +59,7 @@
             </div>
         </div>
     </div>
+  
 </div>
+
 @endsection
