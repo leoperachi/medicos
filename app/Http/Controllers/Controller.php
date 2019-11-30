@@ -22,7 +22,7 @@ class Controller extends BaseController
         if(!isset($client)){
             $this->client = new Client([
                 // Base URI is used with relative requests
-                 'base_uri' => 'localhost:8001/api/',
+                 'base_uri' => 'https://vps13596.publiccloud.com.br/homolog_api/api_click/public/api/',
             ]);
         }
     }
