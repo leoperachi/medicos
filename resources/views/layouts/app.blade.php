@@ -50,7 +50,7 @@
     <script src="//cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
     <link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+    <script src="https://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
     <script src="{{ asset('js/jquery-datatables.js') }}"></script>
 </head>
 <body class="sidebar-mini sidebar-open">
@@ -122,15 +122,6 @@
 @yield('scripts')
 <script>
     $(document).ready(function(){
-        jQuery.extend(jQuery.validator.messages, {
-            required: "Este campo &eacute; obrigatório.",
-            email: "Por favor, forneça um endereço válido.",
-            date: "Por favor, forneça uma data válida.",
-            number: "Por favor, forneça um número válido.",
-            digits: "Por favor, forneça somente d&iacute;gitos.",
-            equalTo: "Por favor, forneça o mesmo valor novamente.",
-        });
-
         var tam = $(window).width();
         
         if (tam <=991){
