@@ -21,11 +21,11 @@ class HomeController extends \App\Http\Controllers\Controller
 
         $disponibilidades = $this->getMinhasDisponibilidades($token, $user);
         $oportunidades = $this->getOportunidades($user->id);
-        $aux = $this->getOportunidadesMedicoInteressado($user->id);
+        // $aux = $this->getOportunidadesMedicoInteressado($user->id);
         $oportunidadesMedicoInteressado = [];
-        foreach ($aux as $omi) {
-            array_push($oportunidadesMedicoInteressado, $omi->idoportunidade);
-        }
+        // foreach ($aux as $omi) {
+        //     array_push($oportunidadesMedicoInteressado, $omi->idoportunidade);
+        // }
 
         return view('home')
             ->with('oportunidadesMedicoInteressado', $oportunidadesMedicoInteressado)
