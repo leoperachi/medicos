@@ -49,7 +49,7 @@ class ApiUserProvider implements IlluminateUserProvider
         try{
             $client = new Client([
                 // Base URI is used with relative requests
-                'base_uri' => 'https://vps13596.publiccloud.com.br/homolog_api/api_click/public/api/',
+                'base_uri' => 'https://vps13596.publiccloud.com.br/homolog_clickApi/api_click/public/api/',
             ]);
     
             $response = $client->post('login', ['form_params' => [
