@@ -78,7 +78,8 @@
                     <div class="dropdown-divider"></div>
                     <form method="post" action="{{route('logout')}}">
                         @csrf
-                        <button type="submit" class="dropdown-item dropdown-footer">Logout</button>
+                        <button type="submit" id="btnLogout" 
+                            class="dropdown-item dropdown-footer">Logout</button>
                     </form>
                 </div>
             </li>
@@ -133,6 +134,10 @@
                 headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
+        });
+
+        $("#btnLogout").click(function(){
+            $("#loading").show(); 
         });
 
         $(".nav-treeview > .nav-item > .nav-link").click(function(){

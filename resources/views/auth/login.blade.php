@@ -37,8 +37,6 @@
                                 @endif
                             </div>
                         </div>
-
-    
                         <div class="form-group form-group-button row">
                             <div class="col-md-12">
                                 <div class="float-right">
@@ -47,7 +45,7 @@
                                             {{ __('Forgot Your Password?') }}
                                         </a>
                                     @endif
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary" id="btnLogin">
                                         {{ __('Login') }}
                                     </button>
                                     
@@ -59,7 +57,17 @@
             </div>
         </div>
     </div>
-  
 </div>
-
+<div id="loading" class="loading" style="z-index: 9999;" >Loading&#8230;</div>
+@yield('scripts')
+<script>
+ $(document).ready(function(){
+     $("#btnLogin").click(function(){
+        $("#loading").show();    
+     });
+    setTimeout(() => {
+        $("#loading").hide();    
+    }, 500);
+ });
+</script>
 @endsection
