@@ -102,21 +102,7 @@ $(function(){
         }
     });
 
-    $('#submitButton').click( function() {
-       var $form = $("#formModal");
-        if($form.valid()){
-            $("#loading").show();    
-            $.ajax({
-                type:'POST',
-                url:'/disponibilidades/salvar',
-                data:{ dataForm:  getFormData($form)  },
-                success:function(data){
-                    $('#dispoModal').modal('toggle');
-                    location.reload();
-                }
-            });
-        }
-    });
+   
 
     $("#cmbTipo").change(function() {
         if($(this).val() == 1){
