@@ -643,7 +643,7 @@
             }
         });
 
-        $(".btnGrid").click(function(){
+        $(".btnGrid").on("click", function(){
             var idOportunidade = $(this).data('id');
             $("#loading").show(); 
             var btnClicked = $(this);
