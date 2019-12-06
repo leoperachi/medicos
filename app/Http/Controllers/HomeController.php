@@ -20,7 +20,13 @@ class HomeController extends \App\Http\Controllers\Controller
         $user = $request->session()->get('apiUser');
 
         $disponibilidades = $this->getMinhasDisponibilidades($token, $user);
+
+        if(isset($disponibilidades->sucesso)){
+            return view('alerta')->with('message', $disponibilidades->msg);
+        }
+
         $oportunidades = $this->getOportunidades($user->id);
+
         $aux = $this->getOportunidadesMedicoInteressado($user->id);
         $oportunidadesMedicoInteressado = [];
         foreach ($aux as $omi) {
@@ -40,6 +46,8 @@ class HomeController extends \App\Http\Controllers\Controller
 
         $response = $this->client->request('GET', 'minhasDisponiblidades?usr=' . $user->id);
         $jsonRetorno = json_decode($response->getBody());
+
+
 
         return $jsonRetorno;
     }
